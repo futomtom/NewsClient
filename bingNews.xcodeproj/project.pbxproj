@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		882420135373151D5E3B8990 /* Pods_bingNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606CAA01D9FCC7706BB645C5 /* Pods_bingNews.framework */; };
+		FA5BBE381E7F20D3002808B1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE351E7F20D3002808B1 /* GradientView.swift */; };
+		FA5BBE3C1E7F20DC002808B1 /* MosaicViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */; };
+		FA5BBE3F1E7F20E6002808B1 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE3D1E7F20E6002808B1 /* Characters.swift */; };
+		FA5BBE401E7F20E6002808B1 /* Character_Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */; };
+		FAD827321E7DDCB1004189C3 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD827311E7DDCB1004189C3 /* MosaicLayout.swift */; };
+		FAD827341E7DDE13004189C3 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD827331E7DDE13004189C3 /* NewsViewCell.swift */; };
+		FAD8273B1E7DE161004189C3 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8273A1E7DE161004189C3 /* Article.swift */; };
+		FAE564FB1E7DD6B600828263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE564FA1E7DD6B600828263 /* AppDelegate.swift */; };
+		FAE564FD1E7DD6B600828263 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE564FC1E7DD6B600828263 /* ViewController.swift */; };
+		FAE565001E7DD6B600828263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE564FE1E7DD6B600828263 /* Main.storyboard */; };
+		FAE565021E7DD6B600828263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE565011E7DD6B600828263 /* Assets.xcassets */; };
+		FAE565051E7DD6B600828263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE565031E7DD6B600828263 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		606CAA01D9FCC7706BB645C5 /* Pods_bingNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bingNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4EAADC7829C83223659EEE1 /* Pods-bingNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bingNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-bingNews/Pods-bingNews.release.xcconfig"; sourceTree = "<group>"; };
+		EBEE80DAB33F148C05935B45 /* Pods-bingNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bingNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bingNews/Pods-bingNews.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5BBE351E7F20D3002808B1 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicViewLayout.swift; sourceTree = "<group>"; };
+		FA5BBE3D1E7F20E6002808B1 /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Character_Data.plist; sourceTree = "<group>"; };
+		FAD827311E7DDCB1004189C3 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
+		FAD827331E7DDE13004189C3 /* NewsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
+		FAD8273A1E7DE161004189C3 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		FAE564F71E7DD6B600828263 /* bingNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bingNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE564FA1E7DD6B600828263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAE564FC1E7DD6B600828263 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAE564FF1E7DD6B600828263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAE565011E7DD6B600828263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAE565041E7DD6B600828263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAE565061E7DD6B600828263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAE564F41E7DD6B600828263 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				882420135373151D5E3B8990 /* Pods_bingNews.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B6F67C859D4D27755043049 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				606CAA01D9FCC7706BB645C5 /* Pods_bingNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D46705511DF5453CEE52CDCF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBEE80DAB33F148C05935B45 /* Pods-bingNews.debug.xcconfig */,
+				B4EAADC7829C83223659EEE1 /* Pods-bingNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FAD827371E7DDF1A004189C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8273A1E7DE161004189C3 /* Article.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FAE564EE1E7DD6B600828263 = {
+			isa = PBXGroup;
+			children = (
+				FAD827371E7DDF1A004189C3 /* Model */,
+				FAE564F91E7DD6B600828263 /* bingNews */,
+				FAE564F81E7DD6B600828263 /* Products */,
+				D46705511DF5453CEE52CDCF /* Pods */,
+				4B6F67C859D4D27755043049 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FAE564F81E7DD6B600828263 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAE564F71E7DD6B600828263 /* bingNews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAE564F91E7DD6B600828263 /* bingNews */ = {
+			isa = PBXGroup;
+			children = (
+				FAE564FA1E7DD6B600828263 /* AppDelegate.swift */,
+				FAE564FC1E7DD6B600828263 /* ViewController.swift */,
+				FAE564FE1E7DD6B600828263 /* Main.storyboard */,
+				FAD827331E7DDE13004189C3 /* NewsViewCell.swift */,
+				FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */,
+				FAD827311E7DDCB1004189C3 /* MosaicLayout.swift */,
+				FAE565011E7DD6B600828263 /* Assets.xcassets */,
+				FA5BBE3D1E7F20E6002808B1 /* Characters.swift */,
+				FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */,
+				FAE565031E7DD6B600828263 /* LaunchScreen.storyboard */,
+				FA5BBE351E7F20D3002808B1 /* GradientView.swift */,
+				FAE565061E7DD6B600828263 /* Info.plist */,
+			);
+			path = bingNews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAE564F61E7DD6B600828263 /* bingNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAE565091E7DD6B600828263 /* Build configuration list for PBXNativeTarget "bingNews" */;
+			buildPhases = (
+				7349DFCD292529437E079B20 /* [CP] Check Pods Manifest.lock */,
+				FAE564F31E7DD6B600828263 /* Sources */,
+				FAE564F41E7DD6B600828263 /* Frameworks */,
+				FAE564F51E7DD6B600828263 /* Resources */,
+				DFFF66BF90014D9AE54DF233 /* [CP] Embed Pods Frameworks */,
+				E40D6AFE3095D038C6672119 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bingNews;
+			productName = bingNews;
+			productReference = FAE564F71E7DD6B600828263 /* bingNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAE564EF1E7DD6B600828263 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = alex;
+				TargetAttributes = {
+					FAE564F61E7DD6B600828263 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6A7K9VGHXX;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FAE564F21E7DD6B600828263 /* Build configuration list for PBXProject "bingNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAE564EE1E7DD6B600828263;
+			productRefGroup = FAE564F81E7DD6B600828263 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAE564F61E7DD6B600828263 /* bingNews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAE564F51E7DD6B600828263 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5BBE401E7F20E6002808B1 /* Character_Data.plist in Resources */,
+				FAE565051E7DD6B600828263 /* LaunchScreen.storyboard in Resources */,
+				FAE565021E7DD6B600828263 /* Assets.xcassets in Resources */,
+				FAE565001E7DD6B600828263 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7349DFCD292529437E079B20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFFF66BF90014D9AE54DF233 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bingNews/Pods-bingNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E40D6AFE3095D038C6672119 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bingNews/Pods-bingNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAE564F31E7DD6B600828263 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD8273B1E7DE161004189C3 /* Article.swift in Sources */,
+				FAD827321E7DDCB1004189C3 /* MosaicLayout.swift in Sources */,
+				FAD827341E7DDE13004189C3 /* NewsViewCell.swift in Sources */,
+				FAE564FD1E7DD6B600828263 /* ViewController.swift in Sources */,
+				FA5BBE3F1E7F20E6002808B1 /* Characters.swift in Sources */,
+				FA5BBE381E7F20D3002808B1 /* GradientView.swift in Sources */,
+				FA5BBE3C1E7F20DC002808B1 /* MosaicViewLayout.swift in Sources */,
+				FAE564FB1E7DD6B600828263 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAE564FE1E7DD6B600828263 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAE564FF1E7DD6B600828263 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAE565031E7DD6B600828263 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAE565041E7DD6B600828263 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAE565071E7DD6B600828263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAE565081E7DD6B600828263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAE5650A1E7DD6B600828263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBEE80DAB33F148C05935B45 /* Pods-bingNews.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6A7K9VGHXX;
+				INFOPLIST_FILE = bingNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.bingNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FAE5650B1E7DD6B600828263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4EAADC7829C83223659EEE1 /* Pods-bingNews.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6A7K9VGHXX;
+				INFOPLIST_FILE = bingNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.bingNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAE564F21E7DD6B600828263 /* Build configuration list for PBXProject "bingNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAE565071E7DD6B600828263 /* Debug */,
+				FAE565081E7DD6B600828263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAE565091E7DD6B600828263 /* Build configuration list for PBXNativeTarget "bingNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAE5650A1E7DD6B600828263 /* Debug */,
+				FAE5650B1E7DD6B600828263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAE564EF1E7DD6B600828263 /* Project object */;
+}
