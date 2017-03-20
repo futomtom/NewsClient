@@ -21,8 +21,14 @@ class NewsViewCell: UICollectionViewCell {
     var article: Article? {
         didSet {
             if let article = article {
-                imageView.image = UIImage(named: article.title)
-                TitleLabel.text = article.title
+                if let image = article.image {
+                    imageView.image = image
+                } else {
+                    imageView.kf.setImage(with: article.thumbnail)
+                }
+                
+                
+                TitleLabel.text = article.name
                 descriptionLabel.text = article.descriptionField
             }
         }

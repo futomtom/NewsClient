@@ -10,10 +10,11 @@ import UIKit
 import AVFoundation
 import Alamofire
 import Kingfisher
+import SwiftyJSON
 
-class ViewController: UICollectionViewController , UICollectionViewDataSourcePrefetching{
+class MosaicViewController: UICollectionViewController, UICollectionViewDataSourcePrefetching {
 
-    let articles: [Article] = []
+    var articles: [Article] = []
 
 
     override func viewDidLoad() {
@@ -27,11 +28,13 @@ class ViewController: UICollectionViewController , UICollectionViewDataSourcePre
         layout.delegate = self
         layout.numberOfColumns = 2
         layout.cellPadding = 5
+        
+        sendNewsRequest()
 
     }
 
 
-    func sendGetnewsRequest() {
+    func sendNewsRequest() {
         /**
          getNews
          get https://api.cognitive.microsoft.com/bing/v5.0/news/
@@ -39,33 +42,42 @@ class ViewController: UICollectionViewController , UICollectionViewDataSourcePre
 
         // Add Headers
         let headers = [
-            "Ocp-Apim-Subscription-Key\n": "71fc740d5409409d8df291604060c143",
+            "Ocp-Apim-Subscription-Key": "71fc740d5409409d8df291604060c143"
         ]
 
         // Add URL parameters
         let urlParams = [
-            "Category": "Business",
+            "Category": "Entertainment",
         ]
 
         // Fetch Request
         Alamofire.request("https://api.cognitive.microsoft.com/bing/v5.0/news/", method: .get, parameters: urlParams, headers: headers)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
-                if (response.result.error == nil) {
-                    debugPrint("HTTP Response Body: \(response.data)")
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    
+                    for (_,subJson):(String, JSON) in json["value"] {
+                       let  article = Article(fromJson: subJson)
+                        self.articles.append(article)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView?.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                    else {
-                    debugPrint("HTTP Request failed: \(response.result.error)")
-                }
+
         }
+
     }
-
-
-
 }
 
 // MARK: UICollectionViewDataSource
-extension ViewController {
+extension MosaicViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -86,24 +98,34 @@ extension ViewController {
 }
 
 // MARK: UICollectionViewDelegate
-extension ViewController {
+extension MosaicViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let character = articles[indexPath.item]
-        performSegue(withIdentifier: "MasterToDetail", sender: character)
+ //       let character = articles[indexPath.item]
+ //       performSegue(withIdentifier: "MasterToDetail", sender: character)
     }
 }
 
 
 // MARK: MosaicLayoutDelegate
-extension ViewController: MosaicLayoutDelegate {
+extension MosaicViewController: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
 
         let article = articles[indexPath.item]
-        let image = UIImage(named: article.urlToImage)
-        let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        let rect = AVMakeRect(aspectRatio: image!.size, insideRect: boundingRect)
-
-        return rect.height
+        if  let image = article.image {
+            let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+            let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
+            return rect.height
+            
+        }else  {
+                ImageDownloader.default.downloadImage(with: article.thumbnail, options: [], progressBlock: nil) {
+                    (image, error, url, data) in
+                    article.image = image
+                 //   self.collectionView?.reloadItems(at: [indexPath])
+                }
+    
+            return 100
+        }
+    
     }
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
@@ -118,23 +140,29 @@ extension ViewController: MosaicLayoutDelegate {
         let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return ceil(rect.height)
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]){
-        
+
+
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+            print("prefetch")
         for indexPath in indexPaths {
+            print(indexPath.item)
             let article = articles[indexPath.row]
-            ImageDownloader
-            
+            article.task = ImageDownloader.default.downloadImage(with: article.thumbnail, options: [], progressBlock: nil) {
+                (image, error, url, data) in
+                article.image = image
+                //(cell as! CollectionViewCell).cellImageView.image = image
+            }
+
+
         }
     }
-    
+
     // indexPaths that previously were considered as candidates for pre-fetching, but were not actually used; may be a subset of the previous call to -collectionView:prefetchItemsAtIndexPaths:
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]){
-        print("Cancel Prefetching Items At index which are not displayed on screen")
-        
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+
         for indexPath in indexPaths {
-            self.dataArray.remove(at: indexPath.row)
+             let article = articles[indexPath.row]
+             article.task?.cancel()
         }
     }
 

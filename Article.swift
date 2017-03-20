@@ -1,30 +1,35 @@
 
 import Foundation
 import SwiftyJSON
+import Kingfisher
+
+//
+//	Value.swift
+//
+//	Create by Alex on 20/3/2017
+//	Copyright © 2017. All rights reserved.
+//	Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+
+import Foundation
+import SwiftyJSON
 
 class Article{
     
-    var author : String!
+    var category : String!
+    var datePublished : String!
     var descriptionField : String!
-    var publishedAt : String!
-    var title : String!
-    var url : String!
-    var urlToImage : String!
+    var thumbnail : URL!
+    var name : String!
     var image:UIImage? = nil
-    
-    /**
-     * Instantiate the instance using the passed json values to set the properties values
-     */
+    var task:RetrieveImageDownloadTask?
+
+
     init(fromJson json: JSON!){
-        if json.isEmpty{
-            return
-        }
-        author = json["author"].stringValue
-        descriptionField = json["description"].stringValue
-        publishedAt = json["publishedAt"].stringValue
-        title = json["title"].stringValue
-        url = json["url"].stringValue
-        urlToImage = json["urlToImage"].stringValue
+
+          datePublished = json["datePublished"].string
+        descriptionField = json["description"].string
+        name = json["name"].stringValue
+        thumbnail = URL(string:  json["image"]["thumbnail"]["contentUrl"].string!)
     }
     
 }

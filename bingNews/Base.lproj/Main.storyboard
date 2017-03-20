@@ -10,21 +10,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Mosaic View Controller-->
         <scene sceneID="bVk-ZR-HzC">
             <objects>
-                <collectionViewController id="CjL-JA-C6q" customClass="ViewController" customModule="bingNews" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="CjL-JA-C6q" customClass="MosaicViewController" customModule="bingNews" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rot-GJ-fue">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="doe-hd-xEy" customClass="MosaicViewLayout" customModule="bingNews" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCell" id="1Ad-dm-I9G" customClass="NewsViewCell" customModule="bingNews" customModuleProvider="target">
-                                <rect key="frame" x="88" y="0.0" width="200" height="300"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="1Ad-dm-I9G" customClass="NewsViewCell" customModule="bingNews" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="201" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0qA-OI-tBC">
@@ -80,6 +80,79 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdn-oZ-IXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="130"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="o5p-lF-kI7">
+            <objects>
+                <collectionViewController id="GLu-Es-zgz" customClass="CollectionViewController" customModule="bingNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="BIZ-Pq-ayX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewLayout key="collectionViewLayout" id="uat-v0-BoC"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCell" id="UO6-Yx-pll" customClass="NewsViewCell" customModule="bingNews" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="201" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofM-9r-Nbx">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="EEz-ak-VEs"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUy-Su-EtF">
+                                            <rect key="frame" x="12" y="208" width="176" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojw-S1-gx6" userLabel="description Label">
+                                            <rect key="frame" x="8" y="227" width="184" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="ojw-S1-gx6" firstAttribute="leading" secondItem="UO6-Yx-pll" secondAttribute="leadingMargin" id="1CJ-H6-eGg"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="ojw-S1-gx6" secondAttribute="trailing" id="22Z-Io-NY7"/>
+                                    <constraint firstAttribute="trailing" secondItem="gUy-Su-EtF" secondAttribute="trailing" constant="12" id="Bzm-cl-gih"/>
+                                    <constraint firstItem="ofM-9r-Nbx" firstAttribute="leading" secondItem="UO6-Yx-pll" secondAttribute="leading" id="GvB-ZE-AxQ"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ojw-S1-gx6" secondAttribute="bottom" constant="5" id="INO-pS-jDu"/>
+                                    <constraint firstItem="ojw-S1-gx6" firstAttribute="top" secondItem="gUy-Su-EtF" secondAttribute="bottom" constant="4" id="LMt-FC-GE3"/>
+                                    <constraint firstItem="gUy-Su-EtF" firstAttribute="top" secondItem="ofM-9r-Nbx" secondAttribute="bottom" constant="8" id="Oq1-F5-3Ct"/>
+                                    <constraint firstAttribute="trailing" secondItem="ofM-9r-Nbx" secondAttribute="trailing" id="UjS-Kc-ZZP"/>
+                                    <constraint firstItem="ofM-9r-Nbx" firstAttribute="top" secondItem="UO6-Yx-pll" secondAttribute="top" id="XBF-q8-DN6"/>
+                                    <constraint firstItem="gUy-Su-EtF" firstAttribute="leading" secondItem="UO6-Yx-pll" secondAttribute="leading" constant="12" id="tkc-7O-8Xa"/>
+                                </constraints>
+                                <size key="customSize" width="200" height="300"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="INO-pS-jDu"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="TitleLabel" destination="gUy-Su-EtF" id="Vs3-uc-Nzg"/>
+                                    <outlet property="descriptionLabel" destination="ojw-S1-gx6" id="op9-oP-2UT"/>
+                                    <outlet property="imageView" destination="ofM-9r-Nbx" id="IOl-su-Kqp"/>
+                                    <outlet property="imageViewHeightConstraint" destination="EEz-ak-VEs" id="oIP-BF-m75"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="GLu-Es-zgz" id="AdN-t8-kuo"/>
+                            <outlet property="delegate" destination="GLu-Es-zgz" id="ibO-9s-SR6"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EgW-1o-KjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="239" y="130"/>
         </scene>
