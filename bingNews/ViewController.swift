@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import Kingfisher
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController , UICollectionViewDataSourcePrefetching{
 
     let articles: [Article] = []
 
@@ -20,6 +21,7 @@ class ViewController: UICollectionViewController {
 
         //  navigationController!.isToolbarHidden = true
         collectionView!.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 10, right: 5)
+        collectionView?.prefetchDataSource = self
 
         let layout = collectionViewLayout as! MosaicViewLayout
         layout.delegate = self
@@ -96,8 +98,8 @@ extension ViewController {
 extension ViewController: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
 
-        let character = articles[indexPath.item]
-        let image = UIImage(named: articles.urlToImage)
+        let article = articles[indexPath.item]
+        let image = UIImage(named: article.urlToImage)
         let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
         let rect = AVMakeRect(aspectRatio: image!.size, insideRect: boundingRect)
 
@@ -105,8 +107,8 @@ extension ViewController: MosaicLayoutDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, heightForDescriptionAtIndexPath indexPath: IndexPath, withWidth width: CGFloat) -> CGFloat {
-        let character = articles[indexPath.item]
-        let descriptionHeight = heightForText(articles.descriptionField, width: width - 24)
+        let article = articles[indexPath.item]
+        let descriptionHeight = heightForText(article.descriptionField, width: width - 24)
         let height = 4 + 17 + 4 + descriptionHeight + 12
         return height
     }
@@ -116,6 +118,26 @@ extension ViewController: MosaicLayoutDelegate {
         let rect = NSString(string: text).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return ceil(rect.height)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]){
+        
+        for indexPath in indexPaths {
+            let article = articles[indexPath.row]
+            ImageDownloader
+            
+        }
+    }
+    
+    // indexPaths that previously were considered as candidates for pre-fetching, but were not actually used; may be a subset of the previous call to -collectionView:prefetchItemsAtIndexPaths:
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]){
+        print("Cancel Prefetching Items At index which are not displayed on screen")
+        
+        for indexPath in indexPaths {
+            self.dataArray.remove(at: indexPath.row)
+        }
+    }
+
 
 
 }

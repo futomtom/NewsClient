@@ -10,7 +10,7 @@ class Article{
     var title : String!
     var url : String!
     var urlToImage : String!
-    
+    var image:UIImage? = nil
     
     /**
      * Instantiate the instance using the passed json values to set the properties values
