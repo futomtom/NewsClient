@@ -1,5 +1,5 @@
 //
-//  NewsAPI.swift
+//  BingAPI.swift
 //  Pods
 //
 //  Created by Alex on 3/20/17.
@@ -21,43 +21,24 @@ class NewsAPI {
     let baseURL = "https://api.cognitive.microsoft.com/bing/v5.0/"
     
     
-    func sendNewsRequest(by category:String,handler:@escaping (([Article]) ->Void)) {
-        /**
-         getNews
-         get https://api.cognitive.microsoft.com/bing/v5.0/news/
-         */
-        
-        // Add Headers
-        
-        // Add URL parameters
+    func sendNewsRequest(by source:String,handler:@escaping (([Article]) ->Void)) {
         let urlParams = [
-            "Category": category,
+            "source":source,
+            "apiKey":"978edd928d834f80a9ee2657e04582e1",
             ]
         
         // Fetch Request
-        Alamofire.request("\(baseURL)news/", method: .get, parameters: urlParams, headers: headers)
+        Alamofire.request("https://newsapi.org/v1/articles", method: .get, parameters: urlParams)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    
-                    var articles:[Article] = []
-                    for (_,subJson):(String, JSON) in json["value"] {
-                        let  article = Article(fromJson: subJson)
-                        articles.append(article)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        handler(articles)
-                    }
-                    
-                case .failure(let error):
-                    print(error)
+                if (response.result.error == nil) {
+                    debugPrint("HTTP Response Body: \(response.data)")
                 }
-                
+                else {
+                    debugPrint("HTTP Request failed: \(response.result.error)")
+                }
         }
-        
-    }
+
+       }
 }
 

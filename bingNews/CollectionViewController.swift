@@ -32,7 +32,7 @@ class CollectionViewController: UICollectionViewController {
     
 
         
-        NewsAPI.share.sendNewsRequest(by: category[0]) { articles in
+        BingAPI.share.sendNewsRequest(by: category[0]) { articles in
             self.articles = articles
             self.collectionView?.reloadData()
         }
@@ -74,7 +74,7 @@ extension CollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == articles.count - 5 {
             let categoryIndex = min(articles.count / 10,category.count - 1)
-            NewsAPI.share.sendNewsRequest(by: category[categoryIndex]) { newArticles in
+            BingAPI.share.sendNewsRequest(by: category[categoryIndex]) { newArticles in
                 self.articles += newArticles
                 print(self.articles.count,newArticles.count)
                 self.collectionView?.reloadData()

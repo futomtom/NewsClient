@@ -1,50 +1,63 @@
+//
+//  BingAPI.swift
+//  Pods
+//
+//  Created by Alex on 3/20/17.
+//
+//
 
 import Foundation
-import Alamofire
 import SwiftyJSON
+import Alamofire
 
-
-
-enum BingNews {
-    case news(String)
+class BingAPI {
+    static let share = BingAPI()
     
     
-    private var baseURL: URL { return URL(string: "https://api.cognitive.microsoft.com/bing/v5.0/")! }
-    public func path(postfix:String) -> String {
-        switch self {
-        case .news(let category):
-            return "\(baseURL)/news/\(category)"
+    let headers = [
+        "Ocp-Apim-Subscription-Key": "71fc740d5409409d8df291604060c143"
+    ]
+    
+    let baseURL = "https://api.cognitive.microsoft.com/bing/v5.0/"
+    
+    
+    func sendNewsRequest(by category:String,handler:@escaping (([Article]) ->Void)) {
+        /**
+         getNews
+         get https://api.cognitive.microsoft.com/bing/v5.0/news/
+         */
+        
+        // Add Headers
+        
+        // Add URL parameters
+        let urlParams = [
+            "Category": category,
+            ]
+        
+        // Fetch Request
+        Alamofire.request("\(baseURL)news/", method: .get, parameters: urlParams, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    
+                    var articles:[Article] = []
+                    for (_,subJson):(String, JSON) in json["value"] {
+                        let  article = Article(fromJson: subJson)
+                        articles.append(article)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        handler(articles)
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+                
         }
         
     }
 }
 
-
-/*
-
-class BingNewsAPI {
-    
-    func reguest(ednpoint:BingNews) {
-        switch ednpoint {
-        case .news(let string):
-            let url = .news("e")
-        default:
-            return
-        }
-        
-        
-    }
-    
-       func getNews(category:String) -> [News]? {
-        Alamofire.request(BingNews., method: .get).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-        }
-
-        
-    }
-  }
-}
- */

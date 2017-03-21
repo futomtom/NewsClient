@@ -29,7 +29,7 @@ class MosaicViewController: UICollectionViewController, UICollectionViewDataSour
         layout.numberOfColumns = 2
         layout.cellPadding = 5
         
-        NewsAPI.share.sendNewsRequest(by: "Business") { articles in
+        BingAPI.share.sendNewsRequest(by: "Business") { articles in
             self.articles = articles
             self.collectionView?.reloadData()
         }
