@@ -63,7 +63,7 @@ extension CollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == articles.count - 5 {
-            let categoryIndex = articles.count / 10
+            let categoryIndex = min(articles.count / 10,category.count - 1)
             NewsAPI.share.sendNewsRequest(by: category[categoryIndex]) { newArticles in
                 self.articles += newArticles
                 print(self.articles.count,newArticles.count)
@@ -100,8 +100,9 @@ extension CollectionViewController:UICollectionViewDataSourcePrefetching {
     
     // indexPaths that previously were considered as candidates for pre-fetching, but were not actually used; may be a subset of the previous call to -collectionView:prefetchItemsAtIndexPaths:
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        
+        print("c")
         for indexPath in indexPaths {
+            print(indexPath.row)
             let article = articles[indexPath.row]
             article.task?.cancel()
         }
