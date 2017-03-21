@@ -36,9 +36,19 @@ class CollectionViewController: UICollectionViewController {
             self.articles = articles
             self.collectionView?.reloadData()
         }
-
- 
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+           as! HeaderView
+            
+            header.title = "Section Header"
+            
+            return header
+    }
+  
+
+    
  }
 
 // MARK: UICollectionViewDataSource

@@ -94,13 +94,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KuQ-MR-CTo">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="UO6-Yx-pll" customClass="NewsFlowCell" customModule="bingNews" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="300"/>
+                                <rect key="frame" x="87.5" y="50" width="200" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
@@ -152,6 +152,27 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="Vh4-go-ynm" customClass="HeaderView" customModule="ShapeEdit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enk-tq-DiY">
+                                    <rect key="frame" x="20" y="0.0" width="580" height="50"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="enk-tq-DiY" firstAttribute="leading" secondItem="Vh4-go-ynm" secondAttribute="leading" constant="20" id="P6K-bN-O0p"/>
+                                <constraint firstAttribute="trailing" secondItem="enk-tq-DiY" secondAttribute="trailing" id="SXN-CM-ao1"/>
+                                <constraint firstAttribute="bottom" secondItem="enk-tq-DiY" secondAttribute="bottom" id="eWv-3i-86K"/>
+                                <constraint firstItem="enk-tq-DiY" firstAttribute="top" secondItem="Vh4-go-ynm" secondAttribute="top" id="u0u-9d-xzW"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="enk-tq-DiY" id="f5P-OA-70X"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="GLu-Es-zgz" id="AdN-t8-kuo"/>
                             <outlet property="delegate" destination="GLu-Es-zgz" id="ibO-9s-SR6"/>
