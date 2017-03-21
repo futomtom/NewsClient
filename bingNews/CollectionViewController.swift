@@ -14,16 +14,27 @@ class CollectionViewController: UICollectionViewController {
 
     var articles: [Article] = []
     
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: view.bounds.width, height: 150)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+   
+        collectionView?.collectionViewLayout = layout
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
+        NewsAPI.share.sendNewsRequest { articles in
+            self.articles = articles
+            self.collectionView?.reloadData()
+        }
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "newsCell")
-
-        // Do any additional setup after loading the view.
+ 
     }
  }
 
@@ -39,7 +50,7 @@ extension CollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as! NewsViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as! NewsFlowCell
         
         // Configure the cell
         cell.article = articles[indexPath.item]

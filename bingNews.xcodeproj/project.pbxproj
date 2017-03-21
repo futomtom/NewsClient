@@ -10,11 +10,10 @@
 		882420135373151D5E3B8990 /* Pods_bingNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606CAA01D9FCC7706BB645C5 /* Pods_bingNews.framework */; };
 		FA5BBE381E7F20D3002808B1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE351E7F20D3002808B1 /* GradientView.swift */; };
 		FA5BBE3C1E7F20DC002808B1 /* MosaicViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */; };
-		FA5BBE3F1E7F20E6002808B1 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5BBE3D1E7F20E6002808B1 /* Characters.swift */; };
-		FA5BBE401E7F20E6002808B1 /* Character_Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */; };
 		FA9F50D41E808BE20013C3E7 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F50D31E808BE20013C3E7 /* CollectionViewController.swift */; };
 		FA9F50D81E808CD70013C3E7 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F50D71E808CD70013C3E7 /* NewsAPI.swift */; };
-		FAD827341E7DDE13004189C3 /* NewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD827331E7DDE13004189C3 /* NewsViewCell.swift */; };
+		FA9F50DA1E8098D60013C3E7 /* NewsViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F50D91E8098D60013C3E7 /* NewsViewCell copy.swift */; };
+		FAD827341E7DDE13004189C3 /* NewsFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD827331E7DDE13004189C3 /* NewsFlowCell.swift */; };
 		FAD8273B1E7DE161004189C3 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8273A1E7DE161004189C3 /* Article.swift */; };
 		FAE564FB1E7DD6B600828263 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE564FA1E7DD6B600828263 /* AppDelegate.swift */; };
 		FAE564FD1E7DD6B600828263 /* MosaicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE564FC1E7DD6B600828263 /* MosaicViewController.swift */; };
@@ -29,11 +28,10 @@
 		EBEE80DAB33F148C05935B45 /* Pods-bingNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bingNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bingNews/Pods-bingNews.debug.xcconfig"; sourceTree = "<group>"; };
 		FA5BBE351E7F20D3002808B1 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicViewLayout.swift; sourceTree = "<group>"; };
-		FA5BBE3D1E7F20E6002808B1 /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
-		FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Character_Data.plist; sourceTree = "<group>"; };
 		FA9F50D31E808BE20013C3E7 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FA9F50D71E808CD70013C3E7 /* NewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
-		FAD827331E7DDE13004189C3 /* NewsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewCell.swift; sourceTree = "<group>"; };
+		FA9F50D91E8098D60013C3E7 /* NewsViewCell copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewsViewCell copy.swift"; sourceTree = "<group>"; };
+		FAD827331E7DDE13004189C3 /* NewsFlowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFlowCell.swift; sourceTree = "<group>"; };
 		FAD8273A1E7DE161004189C3 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FAE564F71E7DD6B600828263 /* bingNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bingNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE564FA1E7DD6B600828263 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,12 +105,11 @@
 				FAE564FC1E7DD6B600828263 /* MosaicViewController.swift */,
 				FA9F50D31E808BE20013C3E7 /* CollectionViewController.swift */,
 				FAE564FE1E7DD6B600828263 /* Main.storyboard */,
-				FAD827331E7DDE13004189C3 /* NewsViewCell.swift */,
+				FAD827331E7DDE13004189C3 /* NewsFlowCell.swift */,
+				FA9F50D91E8098D60013C3E7 /* NewsViewCell copy.swift */,
 				FA9F50D71E808CD70013C3E7 /* NewsAPI.swift */,
 				FA5BBE3B1E7F20DC002808B1 /* MosaicViewLayout.swift */,
 				FAE565011E7DD6B600828263 /* Assets.xcassets */,
-				FA5BBE3D1E7F20E6002808B1 /* Characters.swift */,
-				FA5BBE3E1E7F20E6002808B1 /* Character_Data.plist */,
 				FAE565031E7DD6B600828263 /* LaunchScreen.storyboard */,
 				FA5BBE351E7F20D3002808B1 /* GradientView.swift */,
 				FAE565061E7DD6B600828263 /* Info.plist */,
@@ -183,7 +180,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5BBE401E7F20E6002808B1 /* Character_Data.plist in Resources */,
 				FAE565051E7DD6B600828263 /* LaunchScreen.storyboard in Resources */,
 				FAE565021E7DD6B600828263 /* Assets.xcassets in Resources */,
 				FAE565001E7DD6B600828263 /* Main.storyboard in Resources */,
@@ -246,10 +242,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD8273B1E7DE161004189C3 /* Article.swift in Sources */,
-				FAD827341E7DDE13004189C3 /* NewsViewCell.swift in Sources */,
+				FAD827341E7DDE13004189C3 /* NewsFlowCell.swift in Sources */,
+				FA9F50DA1E8098D60013C3E7 /* NewsViewCell copy.swift in Sources */,
 				FA9F50D81E808CD70013C3E7 /* NewsAPI.swift in Sources */,
 				FAE564FD1E7DD6B600828263 /* MosaicViewController.swift in Sources */,
-				FA5BBE3F1E7F20E6002808B1 /* Characters.swift in Sources */,
 				FA9F50D41E808BE20013C3E7 /* CollectionViewController.swift in Sources */,
 				FA5BBE381E7F20D3002808B1 /* GradientView.swift in Sources */,
 				FA5BBE3C1E7F20DC002808B1 /* MosaicViewLayout.swift in Sources */,

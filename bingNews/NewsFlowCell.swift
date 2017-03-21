@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class NewsViewCell: UICollectionViewCell {
+class NewsFlowCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var TitleLabel: UILabel!
@@ -48,11 +48,6 @@ class NewsViewCell: UICollectionViewCell {
         TitleLabel.text = ""
         descriptionLabel.text = ""
     }
-    
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        let attributes = layoutAttributes as! MosaicLayoutAttributes
-        imageViewHeightConstraint.constant = attributes.imageHeight
-    }
+ 
 }
 
