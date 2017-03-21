@@ -21,7 +21,7 @@ class NewsAPI {
     let baseURL = "https://api.cognitive.microsoft.com/bing/v5.0/"
     
     
-    func sendNewsRequest(handler:@escaping (([Article]) ->Void)) {
+    func sendNewsRequest(by category:String,handler:@escaping (([Article]) ->Void)) {
         /**
          getNews
          get https://api.cognitive.microsoft.com/bing/v5.0/news/
@@ -31,7 +31,7 @@ class NewsAPI {
         
         // Add URL parameters
         let urlParams = [
-            "Category": "Entertainment",
+            "Category": category,
             ]
         
         // Fetch Request

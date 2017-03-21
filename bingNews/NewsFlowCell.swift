@@ -16,15 +16,21 @@ class NewsFlowCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var publishedAtLabel: UILabel!
     
-    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageRatioConstraint: NSLayoutConstraint!
+
     
     var article: Article? {
         didSet {
             if let article = article {
                 if let image = article.image {
+                    imageRatioConstraint.constant = image.size.width / image.size.height
                     imageView.image = image
+                    
                 } else {
-                    imageView.kf.setImage(with: article.thumbnail)
+                    
+                    imageView.kf.setImage(with: article.thumbnail, completionHandler: { (image, error, cache, url) in
+                        self.imageRatioConstraint.constant = (image?.size.width)! / (image?.size.height)!
+                    })
                 }
                 
                 

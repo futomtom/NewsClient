@@ -14,22 +14,25 @@ private let reuseIdentifier = "Cell"
 class CollectionViewController: UICollectionViewController {
 
     var articles: [Article] = []
+    let category = ["Business","Entertainment_MovieAndTV","Entertainment_Music","Health","Politics"
+        ,"Technology","Science","Sports_Golf","Sports_MLB","Sports_NBA","Sports_NFL","Sports_NHL","Sports_Soccer"
+        ,"Sports_Tennis","Sports_CFB","Sports_CBB"]
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        layout.itemSize = CGSize(width: view.bounds.width, height: 150)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        let width = (view.frame.size.width - 30) / 3
+        layout.itemSize = CGSize(width: width, height: 250)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 10
         collectionView?.prefetchDataSource = self
     
 
         
-        NewsAPI.share.sendNewsRequest { articles in
+        NewsAPI.share.sendNewsRequest(by: category[0]) { articles in
             self.articles = articles
             self.collectionView?.reloadData()
         }
@@ -57,6 +60,17 @@ extension CollectionViewController {
         
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == articles.count - 5 {
+            let categoryIndex = articles.count / 10
+            NewsAPI.share.sendNewsRequest(by: category[categoryIndex]) { newArticles in
+                self.articles += newArticles
+                print(self.articles.count,newArticles.count)
+                self.collectionView?.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: UICollectionViewDelegate
@@ -67,21 +81,22 @@ extension CollectionViewController:UICollectionViewDataSourcePrefetching {
     }
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        print("prefetch")
+    //    print("prefetch")
         for indexPath in indexPaths {
-            print(indexPath.item)
+    //        print(indexPath.item)
             let article = articles[indexPath.row]
             let start = CFAbsoluteTimeGetCurrent()
             
             article.task = ImageDownloader.default.downloadImage(with: article.thumbnail, options: [], progressBlock: nil) {
                 (image, error, url, data) in
                 let end = CFAbsoluteTimeGetCurrent()
-                print(end - start)
+            //    print(end - start)
                 article.image = image
                 //(cell as! CollectionViewCell).cellImageView.image = image
             }
         }
     }
+    
     
     // indexPaths that previously were considered as candidates for pre-fetching, but were not actually used; may be a subset of the previous call to -collectionView:prefetchItemsAtIndexPaths:
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
